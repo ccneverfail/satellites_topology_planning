@@ -1,8 +1,6 @@
 
 # satellites_topology_planning：Generalized Multi-kernel Correntropy-based Deep Reinforcement Learning for Dynamic Topology Planning in Multi-Layered Satellite Network
 
-<video src=https://github.com/user-attachments/assets/0f92ca61-23d6-422a-b5f7-966f74158fef" controls></video>
-
 
 https://github.com/user-attachments/assets/0f92ca61-23d6-422a-b5f7-966f74158fef
 
