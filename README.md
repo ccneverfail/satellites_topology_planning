@@ -5,30 +5,32 @@
 https://github.com/user-attachments/assets/0f92ca61-23d6-422a-b5f7-966f74158fef
 
 
-- 自适应 CUDA/AMP
-- Dueling Double DQN（边级 Q） + b-匹配
-- n-step训练目标
-- 滑窗前瞻用于**动作层**（可在 `planner/rollout.py` 扩展）
-- 指标记录 CSV，批量写入并硬刷新
+- Dueling Double DQN (edge-level Q) + b-matching
+- Generalized Multi-kernel Correntropy (GMKC) loss 
+- n-step training targets  
+- Sliding-window lookahead for the **action layer** (can be extended in `planner/rollout.py`)  
+- Metrics logged to CSV, written in batches with forced flush  
 
-## 目录
-- `config/config.py`：常量/超参数（例如 MAX_LINK、窗口 W 等）
-- `data/loader_adapter.py`：数据加载（优先尝试引用 `data_loader.py`，否则用 npy）
-- `topo/*`：拓扑相关工具（conn_gain、bmatch、图指标等）
-- `models/edge_q.py`：Q 网络
-- `rl/replay.py`：序列回放（n-step）
-- `planner/rollout.py`：滑窗前瞻评分（仅动作层使用）
-- `utils/*`：日志/随机种子
-- `train.py`：训练入口（模式 A）
+## Directory Structure
 
-## 依赖
-```
+- `config/config.py`: constants / hyperparameters (e.g., MAX_LINK, window size W, etc.)
+- `data/loader_adapter.py`: data loading (tries to import `data_loader.py` first, otherwise falls back to `.npy`)
+- `topo/*`: topology-related utilities (conn_gain, bmatch, graph metrics, etc.)
+- `models/edge_q.py`: Q-network
+- `rl/replay.py`: sequence replay buffer (n-step)
+- `planner/rollout.py`: sliding-window lookahead scoring (used only at the action layer)
+- `utils/*`: logging / random seeds
+- `train.py`: training entry point (Mode A)
+
+## Dependencies
+
+```bash
 pip install torch numpy networkx
 ```
+## Run
 
-## 运行
-```
+```bash
 python train.py
 ```
 
-> 如需使用你的 `data_loader.py` 与“可视时间窗口 JSON”，请将其放在 PYTHONPATH 下，并在 `data/loader_adapter.py` 中按你的字段适配。
+> If you want to use your own `data_loader.py` and the “visible time window JSON”, place them in your `PYTHONPATH` and adapt the field mappings in `data/loader_adapter.py`.
