@@ -1,7 +1,11 @@
 
 # satellites_topology_planning：Generalized Multi-kernel Correntropy-based Deep Reinforcement Learning for Dynamic Topology Planning in Multi-Layered Satellite Network
 
-<video src="./satellite_topology_planning20260121zip.mp4" controls></video>
+<video src=https://github.com/user-attachments/assets/0f92ca61-23d6-422a-b5f7-966f74158fef" controls></video>
+
+
+https://github.com/user-attachments/assets/0f92ca61-23d6-422a-b5f7-966f74158fef
+
 
 - 自适应 CUDA/AMP
 - Dueling Double DQN（边级 Q） + b-匹配
